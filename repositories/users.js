@@ -1,4 +1,5 @@
 const fs = require('fs');
+const crypto = require('crypto');
 
 class UsersRepository {
 	//check if there is already a file/Create one
@@ -25,13 +26,20 @@ class UsersRepository {
 		);
 	}
 	async create(attrs) {
+		attrs.id = this.randomId();
+		console.log(this);
 		const records = await this.getAll();
 		records.push(attrs);
 
 		await this.writeAll(records);
 	}
 	async writeAll(records) {
+		//rewrite the file and formatting it
 		await fs.promises.writeFile(this.filename, JSON.stringify(records, null, 2));
+	}
+
+	randomId() {
+		return crypto.randomBytes(4).toString('hex');
 	}
 }
 
