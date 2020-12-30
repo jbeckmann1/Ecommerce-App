@@ -27,7 +27,6 @@ class UsersRepository {
 	}
 	async create(attrs) {
 		attrs.id = this.randomId();
-		console.log(this);
 		const records = await this.getAll();
 		records.push(attrs);
 
@@ -50,12 +49,23 @@ class UsersRepository {
 		const filteredRecords = records.filter((record) => record.id !== id);
 		await this.writeAll(filteredRecords);
 	}
+	async update(id, attrs) {
+		const records = await this.getAll();
+		const record = records.find((record) => record.id === id);
+
+		if (!record) {
+			throw new error(`Record with id ${id} not found`);
+		}
+		//Update the records with attrs
+		Object.assign(record, attrs);
+		await this.writeAll(records);
+	}
 }
 
 const test = async () => {
 	const repo = new UsersRepository('users.json');
 
-	await repo.delete('e15a3860');
+	await repo.update('81bfargraga3', { password: 'password' });
 };
 
 test();
