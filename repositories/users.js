@@ -77,12 +77,6 @@ class UsersRepository {
 		}
 	}
 }
-
-const test = async () => {
-	const repo = new UsersRepository('users.json');
-
-	const user = await repo.getOneBy({ email: 'test@test.com', password: 'password3' });
-	console.log(user);
-};
-
-test();
+//export an instance and not just the class
+module.exports = new UsersRepository('users.json');
+// just const in other file and methods can be used
