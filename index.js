@@ -55,12 +55,24 @@ app.get('/signin', (req, res) => {
     <form method="POST">
     <input name="email" placeholder="email" />
     <input name="password" placeholder="password" />
-    <input name="passwordConfirmation" placeholder="Confirm password" />
     <button> Sign In</button>
     </form>
     `);
 });
 
+app.post('/signin', async (req, res) => {
+	const { email, password } = req.body;
+
+	const user = await usersRepo.getOneBy({ email });
+	if (!user) {
+		return res.send(" User doesn't exist");
+	}
+	if (user.password !== password) {
+		return res.send('Wrong password');
+	}
+	req.session.userId = user.id;
+	res.send('Your logged in');
+});
 app.listen(3000, () => {
 	console.log('listening');
 });
