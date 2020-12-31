@@ -14,7 +14,7 @@ app.use(
 	})
 );
 
-app.get('/', (req, res) => {
+app.get('/signup', (req, res) => {
 	res.send(`
     <div>
     Your Id is: ${req.session.userId}
@@ -26,7 +26,7 @@ app.get('/', (req, res) => {
     </form>
     `);
 });
-app.post('/', async (req, res) => {
+app.post('/signup', async (req, res) => {
 	const { email, password, passwordConfirmation } = req.body;
 	const existingUser = await usersRepo.getOneBy({ email });
 	if (existingUser) {
@@ -42,6 +42,25 @@ app.post('/', async (req, res) => {
 	req.session.userId = user.id; //req.session is an object Added by cookie session which can be configured
 	res.send('Account created!!!');
 });
+
+app.get('/signout', (req, res) => {
+	req.session = null;
+	res.redirect('/signin');
+});
+
+app.get('/signin', (req, res) => {
+	res.send(`
+    <div>
+    Your Id is: ${req.session.userId}
+    <form method="POST">
+    <input name="email" placeholder="email" />
+    <input name="password" placeholder="password" />
+    <input name="passwordConfirmation" placeholder="Confirm password" />
+    <button> Sign In</button>
+    </form>
+    `);
+});
+
 app.listen(3000, () => {
 	console.log('listening');
 });
