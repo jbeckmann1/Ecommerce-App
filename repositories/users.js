@@ -49,8 +49,8 @@ class UsersRepository {
 	async comparePasswords(saved, supplied) {
 		//Splitting the password and salt and assigning the parts of the array into consts
 		const [ hashed, salt ] = saved.split('.');
-		const hashedSupplied = await scrypt(supplied, salt, 64);
-		return hashed === hashedSupplied;
+		const hashedSuppliedBuf = await scrypt(supplied, salt, 64);
+		return hashed === hashedSuppliedBuf.toString('hex');
 	}
 
 	async writeAll(records) {
