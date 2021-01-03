@@ -1,7 +1,8 @@
 const { head } = require('../../routes/admin/auth');
 
 module.exports = ({ content }) => {
-	return `<!DOCTYPE html>
+	return `
+    <!DOCTYPE html>
     <html>
         <head>
         </head>
