@@ -15,8 +15,12 @@ router.post(
 	//Sanitization and Validation with express validator
 	[ requireEmail, requirePassword, requirePasswordConfirmation ],
 	async (req, res) => {
-		const error = validationResult(req);
-		console.log(error);
+		const errors = validationResult(req);
+
+		if (!errors.isEmpty()) {
+			return res.send(signupTemplate({ req, errors }));
+			console.log('In');
+		}
 		const { email, password, passwordConfirmation } = req.body;
 		// Create a user in our user reepo to represent this person
 		const user = await usersRepo.create({ email, password });
