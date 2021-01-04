@@ -5,7 +5,7 @@ const usersRepo = require('./repositories/users.js');
 const cookieSession = require('cookie-session');
 const authRouter = require('./routes/admin/auth');
 const app = express();
-
+app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 //Configuration Object as a string
 app.use(
