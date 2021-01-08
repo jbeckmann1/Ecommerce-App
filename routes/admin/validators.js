@@ -32,9 +32,11 @@ module.exports = {
 		.isLength({ min: 4, max: 20 })
 		.withMessage('Password has to be between 4 and 20 Characters')
 		.custom((passwordConfirmation, { req }) => {
-			if (req.body.password !== passwordConfirmation) {
-				throw new Error('Password must match');
+			if (passwordConfirmation !== req.body.password) {
+				throw new Error('Passwords must match');
 			}
+			//fixt das Problem "Invalid value" Warum aber net ohne????
+			return passwordConfirmation;
 		}),
 	requireEmailExists          : check('email')
 		.trim()
@@ -47,6 +49,7 @@ module.exports = {
 				throw new Error('Email not found');
 			}
 		}),
+
 	requirePasswordMatch        : check('password').trim().custom(async (password, { req }) => {
 		const user = await usersRepo.getOneBy({ email: req.body.email });
 		if (!user) {
