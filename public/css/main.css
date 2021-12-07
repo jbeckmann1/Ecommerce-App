@@ -45,13 +45,17 @@ body {
 .navbar-buttons {
 	display: flex;
 }
-
+.logo {
+	height: 5em;
+	display: flex;
+}
 .navbar-top .container.navbar-container,
 .navbar-bottom .container.navbar-container {
 	display: flex;
 	justify-content: space-between;
 	padding: 0px 5%;
 	align-items: center;
+	/* background-color: var(--primary); */
 }
 
 #cart h3 {

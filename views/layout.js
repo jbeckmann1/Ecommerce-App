@@ -41,7 +41,8 @@ module.exports = ({ content }) => {
             <div class="container navbar-container">
               <div>
                 <a href="/">
-                  <h3 class="title">EComm Shop</h3>
+                <img class="title logo"src="images/feederino_LOGO B.png"></img>
+                  <h3 class="title"></h3>
                 </a>
               </div>
               <div class="navbar-item">
