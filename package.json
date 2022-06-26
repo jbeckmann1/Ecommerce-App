@@ -1,7 +1,7 @@
 {
-  "name": "knabberglueck",
+  "name": "Ecommerce-App",
   "version": "1.0.0",
-  "description": "A basic JS Store with nuts",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon index.js"
@@ -11,7 +11,7 @@
     "url": "git+https://github.com/jbeckmann1/Ecommerce-App.git"
   },
   "keywords": [],
-  "author": "Johannes Beckmann",
+  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/jbeckmann1/Ecommerce-App/issues"
@@ -21,9 +21,7 @@
     "cookie-session": "^1.4.0",
     "express": "^4.17.1",
     "express-validator": "^6.9.0",
-    "firebase": "^9.6.1",
     "multer": "^1.4.2",
     "nodemon": "^2.0.6"
-  },
-  "devDependencies": {}
+  }
 }
