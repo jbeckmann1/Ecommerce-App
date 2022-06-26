@@ -21,7 +21,7 @@ app.use(authRouter);
 app.use(AdminProductsRouter);
 app.use(productsRouter);
 app.use(cartsRouter);
-
-app.listen(3000, () => {
-	console.log('listening');
+const port = process.env.PORT || 3000
+app.listen(port, () => {
+	console.log(`Serving on Port ${port}`);
 });
