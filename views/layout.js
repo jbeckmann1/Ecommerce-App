@@ -22,17 +22,14 @@ module.exports = ({ content }) => {
                     <a href=""><i class="fa fa-phone"></i>+1 555 987 6543</a>
                   </li>
                   <li>
-                    <a href=""><i class="fa fa-envelope"></i> shop@myshop.com</a>
+                    <a href=""><i class="fa fa-envelope"></i> shop@knabberglueck.com</a>
                   </li>
                 </ul>
               </div>
               <div>
                 <ul class="social">
-                  <li><a href=""><i class="fab fa-facebook"></i></a></li>
-                  <li><a href=""><i class="fab fa-twitter"></i></a></li>
-                  <li><a href=""><i class="fab fa-linkedin"></i></a></li>
-                  <li><a href=""><i class="fab fa-dribbble"></i></a></li>
-                  <li><a href=""><i class="fab fa-google-plus"></i></a></li>
+                  <li><a href=""><i class="fab fa-instagram"></i></a></li>
+                 
                 </ul>
               </div>
             </div>
@@ -41,8 +38,8 @@ module.exports = ({ content }) => {
             <div class="container navbar-container">
               <div>
                 <a href="/">
-                <img class="title logo"src="images/feederino_LOGO B.png"></img>
-                  <h3 class="title"></h3>
+                <img class="title logo"src="images/logo.png"></img>
+                  
                 </a>
               </div>
               <div class="navbar-item">
